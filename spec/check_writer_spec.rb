@@ -2,6 +2,58 @@ require 'spec_helper'
 
 describe "CheckWriter" do
 
+
+  it "should convert 1" do
+    CheckWriter.amount_to_words(1).should == "one"
+  end
+
+  it "should convert 2" do
+    CheckWriter.amount_to_words(2).should == "two"
+  end
+
+  it "should convert 3" do
+    CheckWriter.amount_to_words(3).should == "three"
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   subject { lambda { |num| CheckWriter.amount_to_words(num)} }
 
   describe "should convert numbers 1 <= num < 10" do
@@ -10,6 +62,7 @@ describe "CheckWriter" do
     it { subject.call(3).should == "three" }
     it { subject.call(8).should == "eight" }
   end
+
 
   describe "should convert numbers 10 <= num < 20" do
     it { subject.call(10).should == "ten" }
@@ -59,7 +112,6 @@ describe "CheckWriter" do
     it { subject.call(82_586).should == "eighty two thousand five hundred eighty six" }
     it { subject.call(99_999).should == "ninety nine thousand nine hundred ninety nine" }
   end
-
 
   describe "should convert numbers 100_000 <= num < 1_000_000" do
     it { subject.call(100_000).should == "one hundred thousand" }
