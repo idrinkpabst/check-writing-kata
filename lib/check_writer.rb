@@ -3,7 +3,15 @@ class CheckWriter
   
 
   def self.amount_to_words(amount, level=0)
-    self.amount_to_words_inner(amount, level).strip
+    int_amount = amount.to_i
+    before_decimal_string = amount_to_words_inner(int_amount, level).strip
+
+    cents = (amount - int_amount) * 100
+    if cents == 0
+      before_decimal_string
+    else
+      "#{before_decimal_string} and #{cents.round}/100"
+    end
   end
 
   private

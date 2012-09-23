@@ -86,6 +86,11 @@ describe "CheckWriter" do
     it { subject.call(999_999_999_999).should == "nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine" }
   end
 
+  describe "should convert floats" do
+    it { subject.call(12.43).should == "twelve and 43/100" }
+    it { subject.call(99.99).should == "ninety nine and 99/100" }
+    it { subject.call(32.00).should == "thirty two" }
+  end
 
 
 end
